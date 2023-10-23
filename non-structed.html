@@ -1,0 +1,103 @@
+<html>
+	<body>
+		<h1>비구조화 할당 실습</h1>
+
+		<script>
+			const books = ["React", "Vue", "Angular", "Node"];
+
+			var book1 = books[0];
+			var book2 = books[1];
+			var book3 = books[2];
+
+			console.log(
+				"전통적인 자바스크립트배열에서 값을 추출하여 변수에 할당하는 방법",
+				book1,
+				book2,
+				book3
+			);
+
+			//비구조화 할당방식으로 상수를 선언하고 값을 할당해보자.
+			//장점은 코드양을 줄여서 코드를 작성할 수 있습니다.
+			const [book4, book5, book6, book7, book8] = [
+				"자바",
+				"닷넷",
+				"파이썬",
+				"PHP",
+				"노드",
+			];
+			console.log(
+				"비구조화 할당방식을 통해 배열안의 값을 상수에 할당하는 방법",
+				book4,
+				book5,
+				book6,
+				book7,
+				book8
+			);
+
+			// 1. 추가적인 비구조화 할당 방법
+			const [book10, ...extraBooks] = [
+				"자바",
+				"닷넷",
+				"파이썬",
+				"PHP",
+				"노드",
+			];
+
+			//객체의 속성값 기능을 전통적인 방식으로 추출해서 변수에 할당하는 방법
+			console.log(
+				"특정배열만 추출하고 나머지 배열값들을 배열형태로 반환받는다.",
+				book6,
+				extraBooks
+			);
+
+			// 2. 추가적인 비구조화 할당 방법
+			const [
+				book11,
+				book12,
+				book13,
+				book14,
+				book15,
+				book16 = "데이터베이스",
+			] = ["자바", "닷넷", "파이썬", "PHP", "노드"];
+
+			const trendTech = {
+				front: "React.js",
+				backend: "JAVA",
+				server: "Linux",
+				rdbms: "PostgreSQL",
+				noSQL: "MongoDB",
+			};
+
+			let frontTech = trendTech.front;
+			let backendTech = trendTech.backend;
+			let serverTech = trendTech.server;
+
+			console.log(
+				"객체의 속성값을 추출해서 한줄 한줄 값을 할당하는 방법:",
+				frontTech,
+				backendTech,
+				serverTech
+			);
+
+			const { front, backend, server, getAuthor } = {
+				front: "React.js",
+				backend: "JAVA",
+				server: "Linux",
+				rdbms: "PostgreSQL",
+				noSQL: "MongoDB",
+				infra: "AWS",
+				getAuthor: function () {
+					return "sungwoo";
+				},
+			};
+
+			console.log(
+				"객체의 속성과기능을 비구조화 할당하는 방식으로 상수를 정의하는 방법",
+				front,
+				backend,
+				server,
+				getAuthor()
+			);
+		</script>
+	</body>
+</html>
